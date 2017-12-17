@@ -149,17 +149,135 @@ img {
   background: rgba(0, 0, 0, 0.4);
 }
 
+.title {
+  text-align: center;
+  font-size: 30px;
+}
+
 .question {
-  width: 600px;
+  max-width: 1000px;
+  min-width: 700px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  border: 1px solid #235632;
   margin: 0 auto;
 }
 
-.question .title h2 {
-  text-align: center;
-  font-size: 30px;
+.question .cards {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.question .cards > div {
+  max-width: 150px;
+  margin: 10px;
+}
+
+.question .cards > div img {
+  vertical-align: middle;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 6px solid #8fb0ff;
+  background-color: #8fb0ff;
+}
+
+.question .variants {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  visibility: hidden;
+}
+
+.question .variants > div {
+  max-width: 150px;
+  margin: 10px;
+}
+
+.question .variants > div img {
+  vertical-align: middle;
+  -webkit-border-radius: 10px;
+          border-radius: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 6px solid #8fb0ff;
+  background-color: #8fb0ff;
+  -webkit-transition: .2s all ease;
+  -o-transition: .2s all ease;
+  transition: .2s all ease;
+}
+
+.question .variants > div img.check {
+  border-color: #57ff89;
+}
+
+@-webkit-keyframes flipIn {
+  from {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@keyframes flipIn {
+  from {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+}
+
+@-webkit-keyframes flipOut {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+@keyframes flipOut {
+  from {
+    -webkit-transform: rotateX(0deg);
+            transform: rotateX(0deg);
+  }
+
+  to {
+    -webkit-transform: rotateX(90deg);
+            transform: rotateX(90deg);
+  }
+}
+
+.flipIn {
+  -webkit-animation: flipIn .3s linear;
+          animation: flipIn .3s linear;
+}
+
+.flipOut {
+  -webkit-animation: flipOut .3s linear;
+          animation: flipOut .3s linear;
 }
 
 @media screen and (max-width: 980px) {

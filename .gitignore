@@ -2,8 +2,8 @@
 /.idea/
 
 # Перед применением раскомментировать
-/app/libs/
-/app/scss/
+#/app/libs/
+#/app/scss/
 
 /dist/
 /node_modules/

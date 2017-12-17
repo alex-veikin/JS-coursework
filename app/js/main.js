@@ -1,26 +1,48 @@
 $(function () {
 
-    $(".title h2").html("Start");
+    var start = $(".title");
+    start.html("Start");
+    start.on("click", function(){
+        $(".question").fadeIn("slow");
+    });
+
 
     function rand(max, min) {
-        return Math.floor(Math.random()*(max - min + 1) + min);
+        return Math.round(Math.random() * (max - min) + min);
     }
 
-    var cardsCount = 5;
+    var cardsCount = 6;
     var cardsArr = [];
 
-    for(var i = 0; i < cardsCount; i++){
-        // do {
-            var card = rand(1, 4) + "-" + rand(1, 9) + ".png";
+    for(var i = 0; i < cardsCount + 2; i++){
+        do {
+            var card = String(rand(1, 4) + "-" + rand(1, 9) + ".png");
+        } while (cardsArr.indexOf(card) !== -1);
 
-        // } while (!~cardsArr.indexOf(card));
+        console.log(!(~cardsArr.indexOf(card)));
         cardsArr[i] = card;
     }
 
-    // $(".cards").append("<div>" +
-    //  "</div>");
+    for(var j = 0; j < cardsArr.length - 2; j++) {
+        $(".cards").append("<div><img src='img/" +
+            cardsArr[j] +
+         "' alt=''></div>");
+    }
 
-    console.log(cardsArr);
+    cardsArr.sort(function () {
+        return Math.random() > 0.5;
+    });
 
+    for(var k = 0; k < cardsArr.length; k++) {
+        $(".variants").append("<div><img src='img/" +
+            cardsArr[k] +
+         "' alt=''></div>");
+    }
+
+    $(".variants div img").on("click", function () {
+        $(this).addClass("check");
+    });
+
+    $(".cards img").addClass("flipIn");
 
 });
